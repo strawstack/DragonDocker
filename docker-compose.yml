@@ -5,20 +5,20 @@ services:
     container_name: dragon
     restart: unless-stopped
     ports:
-        - "80:80"
+      - "80:80"
     depends_on:
       - test_one
-      - test_two
       - test_three
+      - test_two
   test_one:
     build: ./apps/test_one
     container_name: test_one
     restart: unless-stopped
-  test_two:
-    build: ./apps/test_two
-    container_name: test_two
-    restart: unless-stopped
   test_three:
     build: ./apps/test_three
     container_name: test_three
+    restart: unless-stopped
+  test_two:
+    build: ./apps/test_two
+    container_name: test_two
     restart: unless-stopped
