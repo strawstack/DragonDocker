@@ -7,9 +7,14 @@ services:
     ports:
       - "80:80"
     depends_on:
+      - test_four
       - test_one
       - test_three
       - test_two
+  test_four:
+    build: ./apps/test_four
+    container_name: test_four
+    restart: unless-stopped
   test_one:
     build: ./apps/test_one
     container_name: test_one
